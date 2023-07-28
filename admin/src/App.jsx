@@ -17,6 +17,7 @@ import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
 import OrderList from "./pages/orderList/OrderList";
 import Order from "./pages/order/Order";
+import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
 const Container = styled.div`
   height: calc(100vh - 60px);
@@ -42,6 +43,7 @@ function App() {
   };
   return (
     <Router>
+      <ScrollToTop />
       {admin && <Topbar />}
       <Container>
         {admin && <Sidebar />}
