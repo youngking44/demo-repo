@@ -35,9 +35,24 @@ export const ListItem = styled.li`
   gap: 10px;
   border-radius: 10px;
   cursor: pointer;
-  background-color: ${(props) => props.bg};
 
   &:hover {
     background-color: rgb(240 240 255);
+  }
+`;
+
+export const Button = styled.button`
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background-color: lightblue;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(93%);
   }
 `;

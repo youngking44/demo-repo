@@ -84,6 +84,7 @@ export const Right = styled.div`
 export const MenuItem = styled.div`
   text-transform: uppercase;
   line-height: 1;
+  cursor: pointer;
 
   @media (max-width: 267px) {
     display: ${(props) => props.type === "register" && "none"};

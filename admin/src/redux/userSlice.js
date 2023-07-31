@@ -73,6 +73,11 @@ const userSlice = createSlice({
     resetError: (state) => {
       state.error = null;
     },
+
+    //* SIGN OUT
+    signOut: (state) => {
+      state.currentUser = null;
+    },
   },
 });
 
@@ -90,5 +95,6 @@ export const {
   updateUserSuccess,
   updateUserFailure,
   resetError,
+  signOut,
 } = userSlice.actions;
 export default userSlice.reducer;

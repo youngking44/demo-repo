@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Wrapper, Menu, Title, List, ListItem } from "./Sidebar.style";
+import { Wrapper, Menu, Title, List, ListItem, Button } from "./Sidebar.style";
 import {
   ChatBubbleOutline,
   DynamicFeed,
@@ -17,11 +17,16 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { handleShowSidebar } from "../../redux/navbarSlice";
+import { signOut } from "../../redux/userSlice";
 
 function Sidebar() {
   const [active, setActive] = useState(true);
   const showSidebar = useSelector((state) => state.navbar.showSidebar);
   const dispatch = useDispatch();
+
+  const handleSignOut = () => {
+    dispatch(signOut());
+  };
 
   const handleClick = () => {
     dispatch(handleShowSidebar());
@@ -106,6 +111,7 @@ function Sidebar() {
             <Report fontSize="small" />
             Reports
           </ListItem>
+          <Button onClick={handleSignOut}>Sign out</Button>
         </List>
       </Menu>
     </Wrapper>

@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { smallScreenDevice } from "../../../../style-responsiveness/reponsiveness";
 
 export const Wrapper = styled.div`
-  width: 100vw;
+  position: relative;
+  width: 100%;
 `;
 
 export const Slider = styled.div`
@@ -35,6 +36,7 @@ export const Flex = styled.div`
 `;
 
 export const SliderButton = styled.div`
+  display: none;
   position: absolute;
   top: 50%;
   right: ${(props) => props.dir === "right" && "0px"};
@@ -42,4 +44,8 @@ export const SliderButton = styled.div`
   z-index: 20;
   transform: translateY(-50%);
   cursor: pointer;
+
+  @media (max-width: 800px) {
+    display: block;
+  }
 `;

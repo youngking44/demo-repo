@@ -21,6 +21,7 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { loginUser } from "../../redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import { loginFailure } from "../../redux/userSlice";
+import Loader from "../../components/loader/Loader";
 
 function Login() {
   const [isOpened, setIsOpened] = useState(false);
@@ -29,6 +30,7 @@ function Login() {
   const [validationErr, setValidationErr] = useState({});
   const [modalErr, setModalErr] = useState(null);
   const error = useSelector((state) => state.user.error);
+  const isLoading = useSelector((state) => state.user.pending);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -67,6 +69,7 @@ function Login() {
   return (
     <>
       <Wrapper>
+        {isLoading && <Loader />}
         <FormWrapper>
           {modalErr && (
             <Modal>
