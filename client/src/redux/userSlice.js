@@ -32,6 +32,9 @@ const userSlice = createSlice({
       state.pending = false;
       state.error = action.payload;
     },
+    logOut: (state) => {
+      state.currentUser = null;
+    },
   },
 });
 
@@ -42,6 +45,7 @@ export const {
   registerStart,
   registerSuccess,
   registerFailure,
+  logOut,
 } = userSlice.actions;
 
 export default userSlice.reducer;
