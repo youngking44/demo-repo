@@ -41,6 +41,7 @@ import { setPayment, updateCart } from "../../redux/cartSlice";
 import { IconButton } from "@mui/material";
 
 function Cart() {
+  const currentUser = useSelector((state) => state.user.currentUser);
   const cart = useSelector((state) => state.cart);
   const products = useSelector((state) => state.cart.products);
   const [stripeToken, setStripeToken] = useState(null);
@@ -98,18 +99,24 @@ function Cart() {
               <StyledLink type="first">Shopping bag(2)</StyledLink>
               <StyledLink>Your Wishlist(2)</StyledLink>
             </LinkWrapper>
-            <StripeCheckout
-              name="Mike Collection"
-              image="https://media.gettyimages.com/id/1131186263/vector/creative-flower-inspiration-vector-logo-design-template.jpg?s=612x612&w=0&k=20&c=owBFDzj8GQO8PNe14RFjBsoiwESEO_Hyhkng6VnY1u8="
-              billingAddress
-              shippingAddress
-              description={`Your total is ${cart.total}`}
-              amount={cart.total * 100}
-              token={onToken}
-              stripeKey={import.meta.env.VITE_STRIPE_SEC}
-            >
-              <Button type="filled">Checkout now</Button>
-            </StripeCheckout>
+            {currentUser ? (
+              <StripeCheckout
+                name="Mike Collection"
+                image="https://media.gettyimages.com/id/1131186263/vector/creative-flower-inspiration-vector-logo-design-template.jpg?s=612x612&w=0&k=20&c=owBFDzj8GQO8PNe14RFjBsoiwESEO_Hyhkng6VnY1u8="
+                billingAddress
+                shippingAddress
+                description={`Your total is ${cart.total}`}
+                amount={cart.total * 100}
+                token={onToken}
+                stripeKey={import.meta.env.VITE_STRIPE_SEC}
+              >
+                <Button type="filled">Checkout now</Button>
+              </StripeCheckout>
+            ) : (
+              <Link to="/register">
+                <Button type="filled">Checkout now</Button>
+              </Link>
+            )}
           </Flex>
           <ShoppingInfo>
             <Info>
@@ -171,18 +178,24 @@ function Cart() {
                 <SummaryText type="total">Total</SummaryText>
                 <SummaryText type="total">$ {cart.total}</SummaryText>
               </SummaryFlex>
-              <StripeCheckout
-                name="Mike Collection"
-                image="https://media.gettyimages.com/id/1131186263/vector/creative-flower-inspiration-vector-logo-design-template.jpg?s=612x612&w=0&k=20&c=owBFDzj8GQO8PNe14RFjBsoiwESEO_Hyhkng6VnY1u8="
-                billingAddress
-                shippingAddress
-                description={`Your total is ${cart.total}`}
-                amount={cart.total * 100}
-                token={onToken}
-                stripeKey={import.meta.env.VITE_STRIPE_SEC}
-              >
-                <SummaryButton>Checkout now</SummaryButton>
-              </StripeCheckout>
+              {currentUser ? (
+                <StripeCheckout
+                  name="Mike Collection"
+                  image="https://media.gettyimages.com/id/1131186263/vector/creative-flower-inspiration-vector-logo-design-template.jpg?s=612x612&w=0&k=20&c=owBFDzj8GQO8PNe14RFjBsoiwESEO_Hyhkng6VnY1u8="
+                  billingAddress
+                  shippingAddress
+                  description={`Your total is ${cart.total}`}
+                  amount={cart.total * 100}
+                  token={onToken}
+                  stripeKey={import.meta.env.VITE_STRIPE_SEC}
+                >
+                  <SummaryButton>Checkout now</SummaryButton>
+                </StripeCheckout>
+              ) : (
+                <Link to="/register">
+                  <SummaryButton>Checkout now</SummaryButton>
+                </Link>
+              )}
             </Summary>
           </ShoppingInfo>
         </Container>

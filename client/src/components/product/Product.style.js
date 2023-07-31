@@ -29,6 +29,10 @@ export const Wrapper = styled.div`
   &:hover ${Info} {
     opacity: 1;
   }
+
+  @media (max-width: 350px) {
+    min-width: 180px;
+  }
 `;
 
 export const Image = styled.img`

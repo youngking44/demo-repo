@@ -47,8 +47,22 @@ function App() {
           path="/success"
           element={isCharged ? <Success /> : <Navigate to="/" />}
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/login"
+          element={
+            <CheckAuth>
+              <Login />
+            </CheckAuth>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <CheckAuth>
+              <Register />
+            </CheckAuth>
+          }
+        />
       </Routes>
     </Router>
   );

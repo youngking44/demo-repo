@@ -20,7 +20,6 @@ export const Flex = styled.div`
   ${smallMobile({
     position: "relative",
     height: "60px",
-    alignItems: "flex-start",
   })}
 `;
 
@@ -30,6 +29,9 @@ export const Left = styled.div`
   gap: 15px;
 
   ${largeScreenDevice({ flex: 1 })};
+  @media (max-width: 400px) {
+    display: none;
+  }
 `;
 
 export const Language = styled.span`

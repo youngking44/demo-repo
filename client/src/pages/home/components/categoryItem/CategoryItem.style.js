@@ -1,18 +1,22 @@
 import styled from "styled-components";
-import {
-  extralSmallScreenDevice,
-  smallScreenDevice,
-} from "../../../../style-responsiveness/reponsiveness";
 
 export const Item = styled.div`
   position: relative;
   flex: 1;
   height: 400px;
 
-  ${smallScreenDevice({ width: "calc(100% - 150px)", aspectRatio: "1/1" })}
-  ${extralSmallScreenDevice({
-    width: "100%",
-  })}
+  @media (max-width: 800px) {
+    min-width: calc(calc(100% - 20px) / 2);
+  }
+
+  @media (max-width: 630px) {
+    height: 280px;
+  }
+
+  @media (max-width: 530px) {
+    min-width: 100%;
+    height: 350px;
+  }
 `;
 
 export const Image = styled.img`
