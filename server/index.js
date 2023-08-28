@@ -28,8 +28,8 @@ app.use("/api/carts", cartRoute);
 app.use("/api/checkout", stripeRoute);
 app.use("/api/orders", orderRoute);
 
-app.get("/", (req, res) => {
-  res.json("API");
+app.get("/healthcheck", (req, res) => {
+  res.json("Server up and running...");
 });
 
 const start = async () => {
