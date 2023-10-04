@@ -20,10 +20,13 @@ export const Wrapper = styled.div`
   position: relative;
   flex: 1;
   min-width: 300px;
-  height: 350px;
+  min-height: 350px;
+  padding: 20px 0px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  gap: 20px;
   background-color: #f5fbfd;
 
   &:hover ${Info} {
@@ -60,4 +63,32 @@ export const Icon = styled.div`
   &:hover {
     transform: scale(1.1);
   }
+`;
+
+export const Display = styled.div`
+  width: 100%;
+  padding: 0px 20px;
+`;
+
+export const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+`;
+
+export const Title = styled.span`
+  font-size: 20px;
+  font-weight: 600;
+`;
+
+export const Price = styled.span`
+  font-weight: 600;
+  color: #ffa500;
+`;
+
+export const Desc = styled.span`
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
