@@ -19,8 +19,8 @@ const PORT = process.env.PORT || 9000;
 
 const corsOptions = {
   origin: [
-    "https://youngking-mikeshopcollection.onrender.com",
-    "https://youngking-mikeshopcollection-admin.onrender.com",
+    "https://youngking-mikecollection.onrender.com",
+    "https://youngking-mikecollection-admin.onrender.com",
   ],
   // origin: ["http://localhost:5173", "http://localhost:5174"],
   credentials: true,
