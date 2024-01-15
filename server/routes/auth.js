@@ -65,7 +65,7 @@ router.post("/login", async (req, res) => {
     const accessToken = createToken(user._id, user.isAdmin);
     res.status(200).json({ accessToken, ...others });
   } catch (err) {
-    res.status(500).json({ message: "An unknown error occured." });
+    res.status(500).json({ message: "An unknown error ocurred." });
   }
 });
 

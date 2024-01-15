@@ -108,7 +108,7 @@ function Cart() {
                 description={`Your total is ${cart.total}`}
                 amount={cart.total * 100}
                 token={onToken}
-                stripeKey={import.meta.env.VITE_STRIPE_SEC}
+                stripeKey={import.meta.env.VITE_STRIPE_PUB_KEY}
               >
                 <Button type="filled">Checkout now</Button>
               </StripeCheckout>

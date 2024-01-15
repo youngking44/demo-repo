@@ -67,53 +67,51 @@ function Login() {
   }, []);
 
   return (
-    <>
-      <Wrapper>
-        {isLoading && <Loader />}
-        <FormWrapper>
-          {modalErr && (
-            <Modal>
-              {error?.message}
-              <IconButton onClick={() => setModalErr(null)}>
-                <CloseOutlinedIcon />
-              </IconButton>
-            </Modal>
-          )}
-          <Form onSubmit={handleSubmit}>
-            <Title>Login here</Title>
-            <GroupWrapper>
-              <Group>
-                <Icon>
-                  <Person3Icon />
-                </Icon>
-                <Input
-                  type="text"
-                  placeholder="Username"
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </Group>
-              <Error>{validationErr.username}</Error>
-            </GroupWrapper>
-            <GroupWrapper>
-              <Group>
-                <Icon onClick={() => setIsOpened(!isOpened)}>
-                  {isOpened ? <LockOpenIcon /> : <LockIcon />}
-                </Icon>
-                <Input
-                  type={isOpened ? "text" : "password"}
-                  placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </Group>
-              <Error>{validationErr.password}</Error>
-            </GroupWrapper>
-            <ButtonWrapper>
-              <Button>Login</Button>
-            </ButtonWrapper>
-          </Form>
-        </FormWrapper>
-      </Wrapper>
-    </>
+    <Wrapper>
+      {isLoading && <Loader />}
+      <FormWrapper>
+        {modalErr && (
+          <Modal>
+            {error?.message}
+            <IconButton onClick={() => setModalErr(null)}>
+              <CloseOutlinedIcon />
+            </IconButton>
+          </Modal>
+        )}
+        <Form onSubmit={handleSubmit}>
+          <Title>Login here</Title>
+          <GroupWrapper>
+            <Group>
+              <Icon>
+                <Person3Icon />
+              </Icon>
+              <Input
+                type="text"
+                placeholder="Username"
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </Group>
+            <Error>{validationErr.username}</Error>
+          </GroupWrapper>
+          <GroupWrapper>
+            <Group>
+              <Icon onClick={() => setIsOpened(!isOpened)}>
+                {isOpened ? <LockOpenIcon /> : <LockIcon />}
+              </Icon>
+              <Input
+                type={isOpened ? "text" : "password"}
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Group>
+            <Error>{validationErr.password}</Error>
+          </GroupWrapper>
+          <ButtonWrapper>
+            <Button>Login</Button>
+          </ButtonWrapper>
+        </Form>
+      </FormWrapper>
+    </Wrapper>
   );
 }
 
