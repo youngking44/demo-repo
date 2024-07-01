@@ -131,7 +131,6 @@ function NewProduct() {
 
   useEffect(() => {
     const submitForm = async () => {
-      console.log("Submitting form values....", formValues);
       try {
         const id = uuid();
         const storage = getStorage(App);
